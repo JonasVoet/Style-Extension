@@ -1,0 +1,38 @@
+{
+    "version": "1.0",
+    "manifest_version": 2,
+    "name": "Videndjurs ændre farve",
+    "short_name": "Ændre farve",
+    "description": "Ændre styling på videndjurs forside",
+    "icons": {
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
+    },
+    "page_action": {
+        "default_icon": "icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "ChangePageStyle"
+    },
+
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+
+    "content_scripts": [{
+            "matches": ["https://www.videndjurs.dk/*"],
+            "js": ["content.js", "jquery-3.1.0.min.js"],
+            "css": ["content.css"]
+        }
+
+    ],
+
+    "permissions": [
+        "tabs",
+        "https://www.videndjurs.dk/*",
+        "contextMenus"
+
+    ]
+
+}
